@@ -20,27 +20,51 @@ namespace fs = std::filesystem;
 
 const unsigned int width = 800;
 const unsigned int height = 800;
+const  float size = 1.0f;
 
 
 // Vertices coordinates
 GLfloat vertices[] =
-{ //     COORDINATES     /        COLORS      /   TexCoord  //
-	-0.5f, 0.0f,  0.5f,     0.83f, 0.70f, 0.44f,	0.0f, 0.0f,
-	-0.5f, 0.0f, -0.5f,     0.83f, 0.70f, 0.44f,	5.0f, 0.0f,
-	 0.5f, 0.0f, -0.5f,     0.83f, 0.70f, 0.44f,	0.0f, 0.0f,
-	 0.5f, 0.0f,  0.5f,     0.83f, 0.70f, 0.44f,	5.0f, 0.0f,
-	 0.0f, 0.8f,  0.0f,     0.92f, 0.86f, 0.76f,	2.5f, 5.0f
+{ //     COORDINATES Vec3    /        COLORS Vec3     /   TexCoord Vec2 //
+	 0.0f, size,  0.0f,     1.0f,  1.0f,  1.0f,	    0.0f, 0.0f, //0
+	 0.0f, 0.0f,  0.0f,     1.0f,  1.0f,  1.0f,	    5.0f, 0.0f, //1
+	 size, size,  0.0f,     1.0f,  1.0f,  1.0f,		0.0f, 0.0f, //2
+	 size, 0.0f,  0.0f,     1.0f,  1.0f,  1.0f,		5.0f, 0.0f, //3
+	 0.0f, 0.0f,  size,     1.0f,  1.0f,  1.0f,		2.5f, 5.0f, //4
+	 size, 0.0f,  size,     1.0f,  1.0f,  1.0f,		2.5f, 5.0f, //5
+	 0.0f, size,  size,     1.0f,  1.0f,  1.0f,		2.5f, 5.0f, //6
+	 size, size,  size,     1.0f,  1.0f,  1.0f,		2.5f, 5.0f, //7
+	 0.0f, size,  0.0f,     1.0f,  1.0f,  1.0f,		2.5f, 5.0f, //8
+	 size, size,  0.0f,     1.0f,  1.0f,  1.0f,		2.5f, 5.0f, //9
+	 0.0f, size,  0.0f,     1.0f,  1.0f,  1.0f,		2.5f, 5.0f, //10
+	 0.0f, size,  size,     1.0f,  1.0f,  1.0f,		2.5f, 5.0f, //11
+	 size, size,  0.0f,     1.0f,  1.0f,  1.0f,		2.5f, 5.0f, //12
+	 size, size,  size,     1.0f,  1.0f,  1.0f,		2.5f, 5.0f  //13
 };
 
 // Indices for vertices order
 GLuint indices[] =
 {
-	0, 1, 2,
-	0, 2, 3,
-	0, 1, 4,
-	1, 2, 4,
-	2, 3, 4,
-	3, 0, 4
+	//Face front
+	0, 2, 1,
+	1, 2, 3,
+	//Face  top
+	4, 5, 6,
+	5, 7, 6,
+	//Face Right
+	6, 7, 8,
+	7, 9, 8,
+	//Face Left
+	1, 3, 4,
+	3, 5, 4,
+	//Face Back
+	1, 11, 10,
+	1, 4, 11,
+	//Face Bottom
+	3, 12, 5,
+	5, 12, 13
+
+
 };
 
 
@@ -114,7 +138,7 @@ int main()
 	std::string texPath = "/Resources/YoutubeOpenGL 7 - Going 3D/";
 
 	// Texture
-	Texture brickTex((parentDir + texPath + "brick.png").c_str(), GL_TEXTURE_2D, GL_TEXTURE0, GL_RGBA, GL_UNSIGNED_BYTE);
+	Texture brickTex((parentDir + texPath + "cubo.png").c_str(), GL_TEXTURE_2D, GL_TEXTURE0, GL_RGBA, GL_UNSIGNED_BYTE);
 	brickTex.texUnit(shaderProgram, "tex0", 0);
 
 	// Original code from the tutorial
@@ -142,7 +166,7 @@ int main()
 		double crntTime = glfwGetTime();
 		if (crntTime - prevTime >= 1 / 60)
 		{
-			rotation += 0.5f;
+			rotation += 0.005f;
 			prevTime = crntTime;
 		}
 
