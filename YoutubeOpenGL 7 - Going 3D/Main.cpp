@@ -26,20 +26,20 @@ const  float size = 1.0f;
 // Vertices coordinates
 GLfloat vertices[] =
 { //     COORDINATES Vec3    /        COLORS Vec3     /   TexCoord Vec2 //
-	 0.0f, size,  0.0f,     1.0f,  1.0f,  1.0f,	    0.0f, 0.0f, //0
-	 0.0f, 0.0f,  0.0f,     1.0f,  1.0f,  1.0f,	    5.0f, 0.0f, //1
-	 size, size,  0.0f,     1.0f,  1.0f,  1.0f,		0.0f, 0.0f, //2
-	 size, 0.0f,  0.0f,     1.0f,  1.0f,  1.0f,		5.0f, 0.0f, //3
-	 0.0f, 0.0f,  size,     1.0f,  1.0f,  1.0f,		2.5f, 5.0f, //4
-	 size, 0.0f,  size,     1.0f,  1.0f,  1.0f,		2.5f, 5.0f, //5
-	 0.0f, size,  size,     1.0f,  1.0f,  1.0f,		2.5f, 5.0f, //6
-	 size, size,  size,     1.0f,  1.0f,  1.0f,		2.5f, 5.0f, //7
-	 0.0f, size,  0.0f,     1.0f,  1.0f,  1.0f,		2.5f, 5.0f, //8
-	 size, size,  0.0f,     1.0f,  1.0f,  1.0f,		2.5f, 5.0f, //9
-	 0.0f, size,  0.0f,     1.0f,  1.0f,  1.0f,		2.5f, 5.0f, //10
-	 0.0f, size,  size,     1.0f,  1.0f,  1.0f,		2.5f, 5.0f, //11
-	 size, size,  0.0f,     1.0f,  1.0f,  1.0f,		2.5f, 5.0f, //12
-	 size, size,  size,     1.0f,  1.0f,  1.0f,		2.5f, 5.0f  //13
+	 0.0f, size,  0.0f,     1.0f,  1.0f,  1.0f,	    0, 0.66f,     //0
+	 0.0f, 0.0f,  0.0f,     1.0f,  1.0f,  1.0f,	    0.25f, 0.66f, //1
+	 size, size,  0.0f,     1.0f,  1.0f,  1.0f,		0, 0.33f,     //2
+	 size, 0.0f,  0.0f,     1.0f,  1.0f,  1.0f,		0.25f, 0.33f, //3
+	 0.0f, 0.0f,  size,     1.0f,  1.0f,  1.0f,		0.5f, 0.66f,  //4
+	 size, 0.0f,  size,     1.0f,  1.0f,  1.0f,		0.5f, 0.33f,  //5
+	 0.0f, size,  size,     1.0f,  1.0f,  1.0f,		0.75f, 0.66f, //6
+	 size, size,  size,     1.0f,  1.0f,  1.0f,		0.75f, 0.33f, //7
+	 0.0f, size,  0.0f,     1.0f,  1.0f,  1.0f,		1, 0.66f,     //8
+	 size, size,  0.0f,     1.0f,  1.0f,  1.0f,		1, 0.33f,     //9
+	 0.0f, size,  0.0f,     1.0f,  1.0f,  1.0f,		0.25f, 1,     //10
+	 0.0f, size,  size,     1.0f,  1.0f,  1.0f,		0.5f, 1,      //11
+	 size, size,  0.0f,     1.0f,  1.0f,  1.0f,		0.25f, 0,     //12
+	 size, size,  size,     1.0f,  1.0f,  1.0f,		0.5f, 0       //13
 };
 
 // Indices for vertices order
@@ -83,7 +83,7 @@ int main()
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
 	// Create a GLFWwindow object of 800 by 800 pixels, naming it "YoutubeOpenGL"
-	GLFWwindow* window = glfwCreateWindow(width, height, "YoutubeOpenGL", NULL, NULL);
+	GLFWwindow* window = glfwCreateWindow(width, height, "Dado", NULL, NULL);
 	// Error check if the window fails to create
 	if (window == NULL)
 	{
@@ -99,6 +99,7 @@ int main()
 	// Specify the viewport of OpenGL in the Window
 	// In this case the viewport goes from x = 0, y = 0, to x = 800, y = 800
 	glViewport(0, 0, width, height);
+	
 
 
 
@@ -138,7 +139,7 @@ int main()
 	std::string texPath = "/Resources/YoutubeOpenGL 7 - Going 3D/";
 
 	// Texture
-	Texture brickTex((parentDir + texPath + "cubo.png").c_str(), GL_TEXTURE_2D, GL_TEXTURE0, GL_RGBA, GL_UNSIGNED_BYTE);
+	Texture brickTex((parentDir + texPath + "dice_unwrap.png").c_str(), GL_TEXTURE_2D, GL_TEXTURE0, GL_RGBA, GL_UNSIGNED_BYTE);
 	brickTex.texUnit(shaderProgram, "tex0", 0);
 
 	// Original code from the tutorial
@@ -156,7 +157,7 @@ int main()
 	while (!glfwWindowShouldClose(window))
 	{
 		// Specify the color of the background
-		glClearColor(0.07f, 0.13f, 0.17f, 1.0f);
+		glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 		// Clean the back buffer and depth buffer
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		// Tell OpenGL which Shader Program we want to use
