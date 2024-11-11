@@ -20,51 +20,73 @@ namespace fs = std::filesystem;
 
 const unsigned int width = 800;
 const unsigned int height = 800;
-const  float size = 1.0f;
+const float num1 = 0.525731f;
+const float num2 = 0.850651f;
 
 
 // Vertices coordinates
 GLfloat vertices[] =
+//Los vertices base
 { //     COORDINATES Vec3    /        COLORS Vec3     /   TexCoord Vec2 //
-	 0.0f, size,  0.0f,     1.0f,  1.0f,  1.0f,	    0, 0.66f,     //0
-	 0.0f, 0.0f,  0.0f,     1.0f,  1.0f,  1.0f,	    0.25f, 0.66f, //1
-	 size, size,  0.0f,     1.0f,  1.0f,  1.0f,		0, 0.33f,     //2
-	 size, 0.0f,  0.0f,     1.0f,  1.0f,  1.0f,		0.25f, 0.33f, //3
-	 0.0f, 0.0f,  size,     1.0f,  1.0f,  1.0f,		0.5f, 0.66f,  //4
-	 size, 0.0f,  size,     1.0f,  1.0f,  1.0f,		0.5f, 0.33f,  //5
-	 0.0f, size,  size,     1.0f,  1.0f,  1.0f,		0.75f, 0.66f, //6
-	 size, size,  size,     1.0f,  1.0f,  1.0f,		0.75f, 0.33f, //7
-	 0.0f, size,  0.0f,     1.0f,  1.0f,  1.0f,		1, 0.66f,     //8
-	 size, size,  0.0f,     1.0f,  1.0f,  1.0f,		1, 0.33f,     //9
-	 0.0f, size,  0.0f,     1.0f,  1.0f,  1.0f,		0.25f, 1,     //10
-	 0.0f, size,  size,     1.0f,  1.0f,  1.0f,		0.5f, 1,      //11
-	 size, size,  0.0f,     1.0f,  1.0f,  1.0f,		0.25f, 0,     //12
-	 size, size,  size,     1.0f,  1.0f,  1.0f,		0.5f, 0       //13
+	 -num1, 0.0f, num2,     0.0f,  1.0f,  0.0f,	    0, 0.66f,     //0
+	 num1, 0.0f,  num2,     0.0f,  1.0f,  0.0f,	    0.25f, 0.66f, //1
+	 num1, 0.0f, -num2,     0.0f,  1.0f,  0.0f,		0, 0.33f,     //2
+	 num1, 0.0f, -num2,     0.0f,  1.0f,  0.0f,		0.25f, 0.33f, //3
+	 0.0f, num2,  num1,     0.0f,  1.0f,  0.0f,		0.5f, 0.66f,  //4
+	 0.0f, num2,  -num1,     0.0f,  1.0f,  0.0f,		0.5f, 0.33f,  //5
+	 0.0f, -num2,  num1,     0.0f,  1.0f,  0.0f,		0.75f, 0.66f, //6
+	 0.0f, -num2, -num1,     0.0f,  1.0f,  0.0f,		0.75f, 0.33f, //7
+	 num2, num1,  0.0f,     0.0f,  1.0f,  0.0f,		1, 0.66f,     //8
+	 -num2, num1,  0.0f,     0.0f,  1.0f,  0.0f,		1, 0.33f,     //9
+	 num2, -num1,  0.0f,     0.0f,  1.0f,  0.0f,		0.25f, 1,     //10
+	 -num2, -num1,  0.0f,     0.0f,  1.0f,  0.0f,		0.5f, 1,      //11
+
+
 };
 
 // Indices for vertices order
 GLuint indices[] =
 {
-	//Face front
-	0, 2, 1,
-	1, 2, 3,
-	//Face  top
-	4, 5, 6,
-	5, 7, 6,
-	//Face Right
-	6, 7, 8,
-	7, 9, 8,
-	//Face Left
-	1, 3, 4,
-	3, 5, 4,
-	//Face Back
-	1, 11, 10,
-	1, 4, 11,
-	//Face Bottom
-	3, 12, 5,
-	5, 12, 13
-
-
+    //Face 1
+	0,  4,  1,
+	//Face 2
+	0,  9,  4, 
+	//Face 3
+	9,  5,  4,
+	//Face 4
+	4,  5,  8,
+	//Face 5
+	4,  8,  1,
+	//Face 6
+	8, 10,  1,
+	//Face 7
+	8,  3, 10,
+	//Face 8
+	5,  3,  8,
+	//Face 9
+	5,  2,  3,
+	//Face 10
+	2,  7,  3,
+	//Face 11
+	7, 10,  3,
+	//Face 12
+	7,  6, 10,
+	//Face 13
+	7, 11,  6,
+	//Face 14
+	11,  0,  6,
+	//Face 15
+	0,  1,  6,
+	//Face 16
+	6,  1, 10,
+	//Face 17
+	9,  0, 11,
+	//Face 18
+	9, 11,  2,
+	//Face 19
+	9,  2,  5,
+	//Face 20
+	7,  2, 11
 };
 
 
@@ -157,7 +179,7 @@ int main()
 	while (!glfwWindowShouldClose(window))
 	{
 		// Specify the color of the background
-		glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+		glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
 		// Clean the back buffer and depth buffer
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		// Tell OpenGL which Shader Program we want to use
