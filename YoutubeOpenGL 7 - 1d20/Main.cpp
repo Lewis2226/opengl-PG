@@ -20,26 +20,27 @@ namespace fs = std::filesystem;
 
 const unsigned int width = 800;
 const unsigned int height = 800;
-const float num1 = 0.525731f;
-const float num2 = 0.850651f;
+const float num1 = 0.25731f;
+const float num2 = 0.50651f;
+const float num3 = .5f;
 
 
 // Vertices coordinates
 GLfloat vertices[] =
 //Los vertices base
 { //     COORDINATES Vec3    /        COLORS Vec3     /   TexCoord Vec2 //
-	 -num1, 0.0f, num2,     0.0f,  1.0f,  0.0f,	    0, 0.66f,     //0
-	 num1, 0.0f,  num2,     0.0f,  1.0f,  0.0f,	    0.25f, 0.66f, //1
-	 num1, 0.0f, -num2,     0.0f,  1.0f,  0.0f,		0, 0.33f,     //2
-	 num1, 0.0f, -num2,     0.0f,  1.0f,  0.0f,		0.25f, 0.33f, //3
-	 0.0f, num2,  num1,     0.0f,  1.0f,  0.0f,		0.5f, 0.66f,  //4
-	 0.0f, num2,  -num1,     0.0f,  1.0f,  0.0f,		0.5f, 0.33f,  //5
-	 0.0f, -num2,  num1,     0.0f,  1.0f,  0.0f,		0.75f, 0.66f, //6
-	 0.0f, -num2, -num1,     0.0f,  1.0f,  0.0f,		0.75f, 0.33f, //7
-	 num2, num1,  0.0f,     0.0f,  1.0f,  0.0f,		1, 0.66f,     //8
-	 -num2, num1,  0.0f,     0.0f,  1.0f,  0.0f,		1, 0.33f,     //9
-	 num2, -num1,  0.0f,     0.0f,  1.0f,  0.0f,		0.25f, 1,     //10
-	 -num2, -num1,  0.0f,     0.0f,  1.0f,  0.0f,		0.5f, 1,      //11
+	 -num1, 0.0f+num3, num2,     0.0f,  1.0f,  0.0f,	    0, 0.66f,     //0
+	 num1, 0.0f+num3,  num2,     0.0f,  1.0f,  0.0f,	    0.25f, 0.66f, //1
+	 num1, 0.0f+num3, -num2,     0.0f,  1.0f,  0.0f,		0, 0.33f,     //2
+	 num1, 0.0f+num3, -num2,     0.0f,  1.0f,  0.0f,		0.25f, 0.33f, //3
+	 0.0f, num2+num3,  num1,     0.0f,  1.0f,  0.0f,		0.5f, 0.66f,  //4
+	 0.0f, num2+num3,  -num1,     0.0f,  1.0f,  0.0f,		0.5f, 0.33f,  //5
+	 0.0f, -num2+num3,  num1,     0.0f,  1.0f,  0.0f,		0.75f, 0.66f, //6
+	 0.0f, -num2+num3, -num1,     0.0f,  1.0f,  0.0f,		0.75f, 0.33f, //7
+	 num2, num1+num3,  0.0f,     0.0f,  1.0f,  0.0f,		1, 0.66f,     //8
+	 -num2, num1+num3,  0.0f,     0.0f,  1.0f,  0.0f,		1, 0.33f,     //9
+	 num2, -num1+num3,  0.0f,     0.0f,  1.0f,  0.0f,		0.25f, 1,     //10
+	 -num2, -num1+num3,  0.0f,     0.0f,  1.0f,  0.0f,		0.5f, 1,      //11
 
 
 };

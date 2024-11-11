@@ -20,7 +20,7 @@ namespace fs = std::filesystem;
 
 const unsigned int width = 800;
 const unsigned int height = 800;
-const  float size = 1.0f;
+const  float size = 0.5f;
 
 
 // Vertices coordinates
