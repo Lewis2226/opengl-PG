@@ -20,27 +20,46 @@ namespace fs = std::filesystem;
 
 const unsigned int width = 800;
 const unsigned int height = 800;
-const float num1 = 0.25731f;
-const float num2 = 0.50651f;
-const float num3 = .5f;
+
 
 
 // Vertices coordinates
 GLfloat vertices[] =
 //Los vertices base
 { //     COORDINATES Vec3    /        COLORS Vec3     /   TexCoord Vec2 //
-	 -num1, 0.0f+num3, num2,     0.0f,  1.0f,  0.0f,	    0, 0.66f,     //0
-	 num1, 0.0f+num3,  num2,     0.0f,  1.0f,  0.0f,	    0.25f, 0.66f, //1
-	 num1, 0.0f+num3, -num2,     0.0f,  1.0f,  0.0f,		0, 0.33f,     //2
-	 num1, 0.0f+num3, -num2,     0.0f,  1.0f,  0.0f,		0.25f, 0.33f, //3
-	 0.0f, num2+num3,  num1,     0.0f,  1.0f,  0.0f,		0.5f, 0.66f,  //4
-	 0.0f, num2+num3,  -num1,     0.0f,  1.0f,  0.0f,		0.5f, 0.33f,  //5
-	 0.0f, -num2+num3,  num1,     0.0f,  1.0f,  0.0f,		0.75f, 0.66f, //6
-	 0.0f, -num2+num3, -num1,     0.0f,  1.0f,  0.0f,		0.75f, 0.33f, //7
-	 num2, num1+num3,  0.0f,     0.0f,  1.0f,  0.0f,		1, 0.66f,     //8
-	 -num2, num1+num3,  0.0f,     0.0f,  1.0f,  0.0f,		1, 0.33f,     //9
-	 num2, -num1+num3,  0.0f,     0.0f,  1.0f,  0.0f,		0.25f, 1,     //10
-	 -num2, -num1+num3,  0.0f,     0.0f,  1.0f,  0.0f,		0.5f, 1,      //11
+	 0.0,  1.0f, 0.0f,     0.0f,  1.0f,  0.0f,       0, 0.66f,     //0
+
+	 1.0,  0.5f, 0.0f,     0.0f,  1.0f,  0.0f,       0.25f, 0.66f, //1
+	 0.8, -0.5f, 0.6f,     0.0f,  1.0f,  0.0f,       0, 0.33f,     //2
+
+	 0.3,  0.5f, 1.0f,     0.0f,  1.0f,  0.0f,       0.25f, 0.33f, //3
+	-0.3f,-0.5,  1.0f,     0.0f,  1.0f,  0.0f,	   0.5f, 0.66f,  //4
+
+	-0.8f, 0.5,  0.6f,     0.0f,  1.0f,  0.0f,       0.5f, 0.33f,  //5
+	-1.0f,-0.5,  0.0f,     0.0f,  1.0f,  0.0f,       0.75f, 0.66f, //6
+
+	-0.8f, 0.5, -0.6f,     0.0f,  1.0f,  0.0f,       0.75f, 0.33f, //7
+	-0.3, -0.5, -1.0f,     0.0f,  1.0f,  0.0f,       1, 0.66f,     //8
+
+	 0.3,  0.5, -1.0f,     0.0f,  1.0f,  0.0f,       1, 0.33f,     //9
+	 0.8, -0.5, -0.6f,     0.0f,  1.0f,  0.0f,       0.25f, 1,     //10
+
+	0.0f, -1.0f, 0.0f,     0.0f,  0.0f,  1.0f,	   0.5f, 1,      //11
+
+	 0.3,  0.5, -1.0f,     0.0f,  0.0f,  1.0f,	   0.5f, 1,      //12
+	 0.8, -0.5, -0.6f,     0.0f,  0.0f,  1.0f,	   0.5f, 1,      //13
+	 0.0, -1.0,  0.0f,     0.0f,  0.0f,  1.0f,	   0.5f, 1,      //14
+	 0.0,  1.0,  0.0f,     0.0f,  0.0f,  1.0f,	   0.5f, 1,      //15
+	 0.0,  1.0,  0.0f,     0.0f,  0.0f,  1.0f,	   0.5f, 1,      //16
+	 0.0,  1.0,  0.0f,     0.0f,  0.0f,  1.0f,	   0.5f, 1,      //17
+	 0.0,  1.0,  0.0f,     0.0f,  0.0f,  1.0f,	   0.5f, 1,      //18
+	 0.0, -1.0,  0.0f,     0.0f,  0.0f,  1.0f,	   0.5f, 1,      //19
+	 0.0, -1.0,  0.0f,     0.0f,  0.0f,  1.0f,	   0.5f, 1,      //20
+	 0.0, -1.0,  0.0f,     0.0f,  0.0f,  1.0f,	   0.5f, 1,      //20
+	 0.0, -1.0,  0.0f,     0.0f,  0.0f,  1.0f,	   0.5f, 1,      //20
+	 1.0,  0.5,  0.8f,     0.0f,  0.0f,  1.0f,	   0.5f, 1,      //20
+	 0.8, -0.5, -0.6f,     0.0f,  0.0f,  1.0f,	   0.5f, 1,      //20
+
 
 
 };
@@ -48,46 +67,35 @@ GLfloat vertices[] =
 // Indices for vertices order
 GLuint indices[] =
 {
-    //Face 1
-	0,  4,  1,
-	//Face 2
-	0,  9,  4, 
-	//Face 3
-	9,  5,  4,
-	//Face 4
-	4,  5,  8,
-	//Face 5
-	4,  8,  1,
-	//Face 6
-	8, 10,  1,
-	//Face 7
-	8,  3, 10,
-	//Face 8
-	5,  3,  8,
-	//Face 9
-	5,  2,  3,
-	//Face 10
-	2,  7,  3,
-	//Face 11
-	7, 10,  3,
-	//Face 12
-	7,  6, 10,
-	//Face 13
-	7, 11,  6,
-	//Face 14
-	11,  0,  6,
-	//Face 15
-	0,  1,  6,
-	//Face 16
-	6,  1, 10,
-	//Face 17
-	9,  0, 11,
-	//Face 18
-	9, 11,  2,
-	//Face 19
-	9,  2,  5,
-	//Face 20
-	7,  2, 11
+   0,1,3,
+   1,3,2,
+
+   0,5,3,
+   3,5,4,
+
+   0,7,5,
+   5,7,6,
+
+   0,9,7,
+   7,9,8,
+
+   0,1,9,
+   9,1,10,
+
+   11,10,2,
+   10,1,2,
+
+   11,2,4,
+   2,3,4,
+
+   11,4,6,
+   4,5,6,
+
+   11,6,8,
+   6,7,8,
+
+   11,8,10,
+   8,9,10
 };
 
 
@@ -201,7 +209,7 @@ int main()
 
 		// Assigns different transformations to each matrix
 		model = glm::rotate(model, glm::radians(rotation), glm::vec3(0.0f, 1.0f, 0.0f));
-		view = glm::translate(view, glm::vec3(0.0f, -0.5f, -2.0f));
+		view = glm::translate(view, glm::vec3(0.0f, -0.0f, -6.0f));
 		proj = glm::perspective(glm::radians(45.0f), (float)width / height, 0.1f, 100.0f);
 
 		// Outputs the matrices into the Vertex Shader
