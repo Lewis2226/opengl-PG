@@ -67,46 +67,67 @@ GLfloat vertices[] =
 
 // Indices for vertices order
 GLuint indices[] =
-{
+{ /*
+   //Cara 19
    0,1,3,
-   
+
+   //Cara 1
    1,3,2,
-   
+
+   //Cara 9
    12,5,3,
    
+   //Cara 11
    3,5,4,
    
+   //Cara 6
    13,7,5,
    
+   //Cara 14
    5,6,7,
    
+   //Cara 16
    14,9,7,
    
+   //Cara 8
    7,9,8,
    
+   //Cara 3
    15,16,9,
-   
+   */
+   //Cara
    9,16,10,
    
+   //Cara
    11,17,2,
 
+   //Cara
    17,1,2,
 
+   //Cara
    18,2,4,
 
+   //Cara
    2,3,4,
 
+   //Cara
    19,4,6,
 
+   //Cara
    4,5,6,
 
+   //Cara
    20,6,8,
 
+   //Cara
    6,7,8,
    
+   //Cara
    21,8,10,
 
+   //Cara
    8,9,10
+   
    
 };
 
