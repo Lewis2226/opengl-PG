@@ -51,7 +51,7 @@ int main()
 	// Take care of all the light related things
 	glm::vec4 lightColor = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f);
 	glm::vec3 lightPos = glm::vec3(0.5f, 0.5f, 0.5f);
-	glm::mat4 lightModel = glm::mat4(1.0f);
+	glm::mat4 lightModel = glm::mat4(0.0f);
 	lightModel = glm::translate(lightModel, lightPos);
 
 	shaderProgram.Activate();
@@ -76,7 +76,7 @@ int main()
 	* Also note that this requires C++17, so go to Project Properties, C/C++, Language, and select C++17
 	*/
 	std::string parentDir = (fs::current_path().fs::path::parent_path()).string();
-	std::string modelPath = "/Resources/YoutubeOpenGL 13 - Model Loading/models/bunny/scene.gltf";
+	std::string modelPath = "/Resources/YoutubeOpenGL 13 - Model Loading/models/cube/cube.gltf";
 	
 	// Load in a model
 	Model model((parentDir + modelPath).c_str());
