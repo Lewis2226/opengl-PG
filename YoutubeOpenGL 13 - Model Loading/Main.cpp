@@ -76,7 +76,7 @@ int main()
 	* Also note that this requires C++17, so go to Project Properties, C/C++, Language, and select C++17
 	*/
 	std::string parentDir = (fs::current_path().fs::path::parent_path()).string();
-	std::string modelPath = "/Resources/YoutubeOpenGL 13 - Model Loading/models/cube/cube.gltf";
+	std::string modelPath = "/Resources/YoutubeOpenGL 13 - Model Loading/models/redqueen/redqueen.gltf";
 	
 	// Load in a model
 	Model model((parentDir + modelPath).c_str());
